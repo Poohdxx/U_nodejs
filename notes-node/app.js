@@ -1,22 +1,22 @@
 console.log('Starting app.js');
 
-// require() load module
 const fs = require('fs');  //File System
-const os = require('os');  //Operating System
-const notes = require('./notes.js');
 const _ = require('lodash');
 
-// console.log(_.isString(true));
-// console.log(_.isString('true'));
-var filteredArray = _.uniq(['Joe', 1, 'Joe', 1, 2, 3]);
-console.log(filteredArray);
+const notes = require('./notes.js');
 
-// var res = notes.add(9,-2);
-// console.log(res);
+var command = process.argv[2];
+console.log('Command:', command);
+console.log(process.argv);
 
-// console.log('Result:', notes.add(3,5));
-
-// var user = os.userInfo();
-
-// // fs.appendFileSync('greeting.txt', 'Hello ' + user.username + '!');  //method 1
-// fs.appendFileSync('greeting.txt', `Hello ${user.username}! You are ${notes.age}.`);  //method 2 : ES6
+if (command === 'add') {
+    console.log('Adding new note');
+} else if (command === 'list') {
+    console.log('Listing all notes');
+} else if (command === 'read') {
+    console.log('Reading note')
+} else if (command === 'remove') {
+    console.log('Removing note')
+} else {
+    console.log('Command not recognized');
+}
